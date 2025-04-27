@@ -7,8 +7,11 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Get API key from environment or Streamlit secrets
+api_key = os.getenv("OPENAI_API_KEY") or st.secrets["OPENAI_API_KEY"]
+
 # Initialize OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=api_key)
 
 # Streamlit interface
 st.title("LinkedIn Post Generator")
